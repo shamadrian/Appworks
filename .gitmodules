@@ -4,3 +4,9 @@
 [submodule "Week8_Q2/lib/openzeppelin-contracts"]
 	path = Week8_Q2/lib/openzeppelin-contracts
 	url = https://github.com/openzeppelin/openzeppelin-contracts
+[submodule "Week9/lib/openzeppelin-contracts"]
+	path = Week9/lib/openzeppelin-contracts
+	url = https://github.com/openzeppelin/openzeppelin-contracts
+[submodule "Week9/lib/erc721a"]
+	path = Week9/lib/erc721a
+	url = https://github.com/chiru-labs/erc721a
