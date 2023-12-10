@@ -46,21 +46,21 @@ contract DeployerScript is Script {
         //Deploy underlying token
         testToken = new TestToken();
         //Deploy ZeroInterestRateModel
-        zeroInterestRateModel = new ZeroInterestRateModel();
+        zeroInterestRateModel = new ZeroInterestRateModel(0,0);
         //Deploy CErc20Delegate
         cErc20Delegate = new CErc20Delegate();
         //Deploy CErc20Delegator
         cErc20Delegator = new CErc20Delegator(
-            address(testToken),             // underlying
-            comptroller,                    // comptroller
-            zeroInterestRateModel,          // interestRateModel
-            1,                              // initialExchangeRateMantissa
-            "CompoundTestToken",            // name
-            "cTT",                          // symbol
-            18,                             // decimals
-            initialAdmin,                   // admin
-            address(cErc20Delegate),        // implementation
-            ""                              // becomeImplementationData
+            address(testToken),                 // underlying
+            Comptroller(address(unitroller)),  // comptroller
+            zeroInterestRateModel,              // interestRateModel
+            1,                                  // initialExchangeRateMantissa
+            "CompoundTestToken",                // name
+            "cTT",                              // symbol
+            18,                                 // decimals
+            initialAdmin,                       // admin
+            address(cErc20Delegate),            // implementation
+            ""                                  // becomeImplementationData
         );
     }
 }
