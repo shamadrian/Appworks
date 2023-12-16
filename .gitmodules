@@ -10,3 +10,9 @@
 [submodule "Week9/lib/erc721a"]
 	path = Week9/lib/erc721a
 	url = https://github.com/chiru-labs/erc721a
+[submodule "Week12/lib/compound-protocol"]
+	path = Week12/lib/compound-protocol
+	url = https://github.com/compound-finance/compound-protocol
+[submodule "Week12/lib/openzeppelin-contracts"]
+	path = Week12/lib/openzeppelin-contracts
+	url = https://github.com/openzeppelin/openzeppelin-contracts
