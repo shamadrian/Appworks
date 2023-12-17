@@ -152,5 +152,8 @@ contract MainnetTest is Test {
         vm.startPrank(user2);
         flashLoanLiquidate.execute(address(user1), 1250 * 10 ** 6, cErc20DelegatorUNI, cErc20DelegatorUSDC);
         console2.log("user2 USDC balance: ", USDC.balanceOf(user2));
+
+        //RESULT:
+        //console::log(user2 USDC balance: , 63638693 [6.363e7])
     }
 }
