@@ -143,7 +143,7 @@ contract DeployTest is Test {
         //enter market for tokenA
         {
             address[] memory cTokens = new address[](1);
-            cTokens[0] = address(cErc20DelegatorB);
+            cTokens[0] = address(cErc20DelegatorA);
             unitrollerInterface.enterMarkets(cTokens);
         }
         vm.stopPrank();
@@ -165,6 +165,7 @@ contract DeployTest is Test {
         simplePriceOracle.setUnderlyingPrice(CToken(address(cErc20DelegatorB)), 100 * 10 ** 18);
         //set collateral factor of tokenB to 0.5
         unitrollerInterface._setCollateralFactor(CToken(address(cErc20DelegatorB)), 0.5 * 10 ** 18);
+        unitrollerInterface._setCollateralFactor(CToken(address(cErc20DelegatorA)), 0.5 * 10 ** 18);
         unitrollerInterface._setCloseFactor(0.5 * 10 ** 18);
         unitrollerInterface._setLiquidationIncentive(1.1 * 10 ** 18);
         vm.stopPrank();
@@ -187,10 +188,17 @@ contract DeployTest is Test {
         //enter market for tokenA
         {
             address[] memory cTokens = new address[](1);
-            cTokens[0] = address(cErc20DelegatorB);
+            cTokens[0] = address(cErc20DelegatorA);
             unitrollerInterface.enterMarkets(cTokens);
         }
         vm.stopPrank();
+
+        (,uint256 liquidity, uint256 shortfall) = unitrollerInterface.getAccountLiquidity(user1);
+        console2.log("user1 liquidity: %s", liquidity);
+        console2.log("user1 shortfall: %s", shortfall);
+        (,uint256 liquidity2, uint256 shortfall2) = unitrollerInterface.getAccountLiquidity(user2);
+        console2.log("user2 liquidity: %s", liquidity2);
+        console2.log("user2 shortfall: %s", shortfall2);
 
         //borrow tokenA
         vm.startPrank(user1);
@@ -242,6 +250,7 @@ contract DeployTest is Test {
         simplePriceOracle.setUnderlyingPrice(CToken(address(cErc20DelegatorB)), 100 * 10 ** 18);
         //set collateral factor of tokenB to 0.5
         unitrollerInterface._setCollateralFactor(CToken(address(cErc20DelegatorB)), 0.5 * 10 ** 18);
+        unitrollerInterface._setCollateralFactor(CToken(address(cErc20DelegatorA)), 0.5 * 10 ** 18);
         unitrollerInterface._setCloseFactor(0.5 * 10 ** 18);
         unitrollerInterface._setLiquidationIncentive(1.1 * 10 ** 18);
         vm.stopPrank();

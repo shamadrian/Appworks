@@ -16,3 +16,12 @@
 [submodule "Week12/lib/openzeppelin-contracts"]
 	path = Week12/lib/openzeppelin-contracts
 	url = https://github.com/openzeppelin/openzeppelin-contracts
+[submodule "Week12/lib/aave-v3-core"]
+	path = Week12/lib/aave-v3-core
+	url = https://github.com/aave/aave-v3-core
+[submodule "Week12/lib/v3-periphery"]
+	path = Week12/lib/v3-periphery
+	url = https://github.com/uniswap/v3-periphery
+[submodule "Week12/lib/v3-core"]
+	path = Week12/lib/v3-core
+	url = https://github.com/uniswap/v3-core
